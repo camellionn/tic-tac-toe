@@ -1,0 +1,37 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 20px;
+    background-color: #04c0b2;
+  }
+  
+  #controls {
+    margin-bottom: 20px;
+  }
+  
+  #board {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    width: 300px;
+    margin: 10px auto;
+    color: #04c0b2;
+    background-color: #04c0b2;
+  }
+  
+  .cell {
+    font-family: "Permanent Marker", cursive;
+    width: 100px;
+    height: 100px;
+    border: 3px solid #028178;
+    cursor: pointer;
+    line-height: 100px;
+    font-size: 60px;
+  }
+  
+  .cell.taken {
+    cursor: not-allowed;
+    background-color: #d3d3d3;
+  }
+
+  
