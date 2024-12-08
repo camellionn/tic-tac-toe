@@ -12,7 +12,6 @@ let player2Score = 0;
 let board = [];
 
 function initializeGame() {
-    const player1Symbol = Math.random() > 0.5 ? "X" : "O";
     player2Symbol = player1Symbol === "X" ? "O" : "X";
     currentPlayer = player1Symbol;
 
@@ -29,7 +28,6 @@ function generateBoard(size) {
         for(let j=0; j < size; j++){
             const cell = document.createElement("div");
             cell.className = "cell";
-            cell.classList.add("cell");
             cell.dataset.row = i;
             cell.dataset.col = j;
 
@@ -66,6 +64,14 @@ function handleCellClick(row, col, cell) {
         return;
     }
 
+    if (checkDraw()) {
+        setTimeout(() => {
+        alert(`It's a draw!`);
+        generateBoard(board.length);
+    }, 200);
+        return;
+    }
+
     // Switch player immediately
     currentPlayer = currentPlayer === player1Symbol ? player2Symbol : player1Symbol;
     currentPlayerDisplay.textContent = `Current Player: ${currentPlayer}`;
@@ -89,6 +95,11 @@ function checkWin(row, col) {
 
     return false;
 }
+
+function checkDraw() {
+    return board.every(row => row.every(cell => cell !== null));
+}
+
 function updateScoreDisplay() {
     scoreDisplay.textContent = `Player 1: (${player1Symbol}) : ${player1Score} | Player 2: ( ${player2Symbol} ): ${player2Score}`;
 }
