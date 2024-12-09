@@ -1,37 +1,136 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: "Montserrat", sans-serif;
     text-align: center;
     margin: 0;
     padding: 20px;
-    background-color: #04c0b2;
+    background-color: #04c0b2; 
   }
   
   #controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin-bottom: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    font-size: 18px;
+    color: #333;
+  }
+  
+  #score-display {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 10px;
+    margin: 20px auto;
+    width: 400px;
+  }
+  
+  #player1,
+  #player2 {
+    flex: 1; /* Các ô có chiều dài tương tự nhau */
+    font-weight: 10px;
+    color: #333;
+    border: 2px solid #ddd;
+    background-color: #505050;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  #player1:hover,
+  #player2:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
   }
   
   #board {
     display: grid;
-    grid-template-columns: repeat(3, auto);
-    width: 300px;
-    margin: 10px auto;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+    width: 320px;
+    margin: 20px auto;
     color: #04c0b2;
     background-color: #04c0b2;
+    padding: 10px;
+    border-radius: 10px;
   }
   
   .cell {
-    font-family: "Permanent Marker", cursive;
+    font-weight: bold;
     width: 100px;
     height: 100px;
-    border: 3px solid #028178;
+    border: 2px solid #adadad;
+    border-radius: 10px;
     cursor: pointer;
     line-height: 100px;
     font-size: 60px;
+    text-align: center;
+    background-color: #ffffff;
+    transition: background-color 0.3s ease, transform 0.1s ease;
   }
   
+  .cell:hover {
+    background-color: #f0f0f0;
+    transform: scale(1.1);
+  }
+  
+  /* Ngăn để ô đã được đánh dấu không bị lấy */
   .cell.taken {
     cursor: not-allowed;
-    background-color: #d3d3d3;
+    background-color: #ddd;
+    color: #777;
+  }
+  
+  .score-display {
+    font-size: 20px;
+    color: #333;
+  }
+  
+  #player1 .score,
+  #player2 .score {
+    color: white;
+    font-size: 24px;
+    margin-left: 10px;
+  }
+  
+  #player1 .symbol,
+  #player2 .symbol {
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+    margin-right: 40px;
+  }
+  
+  button {
+    font-family: "Montserrat", sans-serif;
+    font-size: 16px;
+    padding: 10px 20px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #04c0b2;
+    color: #ffffff;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  button:hover {
+    background-color: #028178;
+    transform: scale(1.05);
+  }
+  
+  button:active {
+    transform: scale(0.95);
   }
 
   
